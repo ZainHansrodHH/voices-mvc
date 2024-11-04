@@ -1,2 +1,2 @@
-# voices-mvc
+# Voices MVC
 Voices MVC Application
