@@ -12,10 +12,10 @@
 <body>
 
     <div class="main-container">
-        <div class="title-container">
+        <div class="left-container">
             <h1>Let us know your project requirements</h1>
         </div>
-        <div class="form-container">
+        <div class="right-container">
             <form class="form">
 
                 <div class="form--group">
@@ -32,57 +32,71 @@
                     </p>
                     <textarea class="form--input" id="form--script"
                         placeholder="Type or paste a sample script here."></textarea>
-                    <p>0 Words</p>
+                    <p class="form--word-count"><span>0</span> Words</p>
                 </div>
 
-                <div class="form--group">
-                    <label for="form--country" class="form--title">Country</label>
-                    <select class="form--input" id="form--country">
-                        <option>USA</option>
-                        <option>Canada</option>
-                    </select>
-                </div>
+                <div class="form--country-state-container">
+                    <div class="form--group">
+                        <label for="form--country" class="form--title">Country</label>
+                        <select class="form--input" id="form--country">
+                            <option value="" disabled selected>Select your country</option>
+                            <option>USA</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
 
-                <div class="form--group">
-                    <label for="form--state" class="form--title">State/Province</label>
-                    <select class="form--input" id="form--state">
-                        <option>USA</option>
-                        <option>Canada</option>
-                    </select>
+                    <div class="form--group">
+                        <label for="form--state" class="form--title">State/Province</label>
+                        <select class="form--input" id="form--state" disabled>
+                            <option value="" disabled selected>Select your state or province</option>
+                            <option>USA</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
                 </div>
 
 
                 <div class="form--group">
                     <label for="form--file" class="form--title">Please upload your reference file here.</label>
-                    <p class="form--description">(Max: 20MB)</p>
-                    <input type="file" />
+                    <p class="form--description">Max: 20MB. Accepted file formats: .pdf, .doc, .docx, .txt</p>
+                    <input type="file" class="form--input" id="form--file" name="form--file"
+                        accept=".pdf,.doc,.docx,.txt" hidden />
+                    <label for="form--file" class="form--file-btn"><img src="img/upload-icon.svg"
+                            class="form--file-btn-img" /> Browse for files</label>
                 </div>
 
                 <div class="form--group">
                     <label for="form--budget" class="form--title">What's your budget?</label>
                     <p class="form--description">Minimum project cost is $5 USD.</p>
 
-                    <div class="form--radio-group">
-                        <input type="radio" id="5-99" name="budget" value="5-99" />
-                        <label for="5-99">$5 - $99</label>
-                    </div>
+                    <div class="form--radio-container">
 
-                    <div class="form--radio-group">
-                        <input type="radio" id="100-249" name="budget" value="100-249" />
-                        <label for="100-249">$100 - $249</label>
-                    </div>
+                        <label for="5-99" class="form--radio-group form--input">
+                            <input type="radio" id="5-99" name="budget" value="5-99" />
+                            <label for="5-99">$5 - $99</label>
+                        </label>
 
-                    <div class="form--radio-group">
-                        <input type="radio" id="250-499" name="budget" value="250-499" />
-                        <label for="250-499">$250 - $499</label>
+                        <label for="100-249" class="form--radio-group form--input">
+                            <input type="radio" id="100-249" name="budget" value="100-249" />
+                            <label for="100-249">$100 - $249</label>
+                        </label>
+
+                        <label for="250-499" class="form--radio-group form--input">
+                            <input type="radio" id="250-499" name="budget" value="250-499" />
+                            <label for="250-499">$250 - $499</label>
+                        </label>
                     </div>
 
                 </div>
 
             </form>
 
-            <button class="btn-reset">Reset</button>
-            <button class="btn-reset">Submit</button>
+            <div class="form-btn-container">
+                <button class="btn-reset">Reset</button>
+                <button class="btn-submit">Submit</button>
+            </div>
+
+
         </div>
     </div>
 
