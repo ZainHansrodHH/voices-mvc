@@ -17,13 +17,14 @@
         </div>
         <div class="right-container">
             <form class="form">
-
+                <p>Fields marked with * are required fields</p>
                 <div class="form--group">
-                    <label for="form--input-title" class="form--title">What's your projects name?</label>
+                    <label for="form--input-title" class="form--title">What's your projects name? *</label>
                     <p class="form--description">Provide a short, descriptive title to attract talent.</p>
                     <input class="form--input" type="text"
                         placeholder="For example: '30 Second Radio Spot' or 'Corporate Training Video'"
                         id="form--input-title" />
+                        <span class="error-message error-message--input-title"></span>
                 </div>
 
                 <div class="form--group">
@@ -32,26 +33,26 @@
                     </p>
                     <textarea class="form--input" id="form--script"
                         placeholder="Type or paste a sample script here."></textarea>
-                    <p class="form--word-count"><span>0</span> Words</p>
+                    <p class="form--word-count"><span class="form--word-count-number">0</span> <span class="form--word-count-word">Words</span></p>
                 </div>
 
                 <div class="form--country-state-container">
                     <div class="form--group">
-                        <label for="form--country" class="form--title">Country</label>
+                        <label for="form--country" class="form--title">Country *</label>
                         <select class="form--input" id="form--country">
                             <option value="" disabled selected>Select your country</option>
                             <option>USA</option>
                             <option>Canada</option>
                         </select>
+                        <span class="error-message error-message--country"></span>
                     </div>
 
                     <div class="form--group">
-                        <label for="form--state" class="form--title">State/Province</label>
+                        <label for="form--state" class="form--title">State/Province *</label>
                         <select class="form--input" id="form--state" disabled>
                             <option value="" disabled selected>Select your state or province</option>
-                            <option>USA</option>
-                            <option>Canada</option>
                         </select>
+                        <span class="error-message error-message--state"></span>
                     </div>
                 </div>
 
@@ -63,10 +64,11 @@
                         accept=".pdf,.doc,.docx,.txt" hidden />
                     <label for="form--file" class="form--file-btn"><img src="img/upload-icon.svg"
                             class="form--file-btn-img" /> Browse for files</label>
+                    <p class="form--file-name"></p>
                 </div>
 
                 <div class="form--group">
-                    <label for="form--budget" class="form--title">What's your budget?</label>
+                    <label for="form--budget" class="form--title">What's your budget? *</label>
                     <p class="form--description">Minimum project cost is $5 USD.</p>
 
                     <div class="form--radio-container">
@@ -88,13 +90,12 @@
                     </div>
 
                 </div>
-
+                <div class="form-btn-container">
+                    <input type="reset" value="Reset" class="btn-reset">
+                    <input type="submit" value="Submit" class="btn-submit">
+                </div>
             </form>
 
-            <div class="form-btn-container">
-                <button class="btn-reset">Reset</button>
-                <button class="btn-submit">Submit</button>
-            </div>
 
 
         </div>
