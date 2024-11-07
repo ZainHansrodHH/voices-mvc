@@ -61,6 +61,10 @@ body {
     -moz-box-sizing: border-box;
 }
 
+.form--input:focus-visible {
+    box-shadow: 1px 1px 10px #BBB;
+}
+
 .form--word-count {
     display: block;
     font-size: 0.9em;
@@ -158,4 +162,14 @@ body {
 .btn-submit:hover, .btn-submit:focus-visible {
     color: #2b6cb0;
     background-color: #e7e7e7;
+}
+
+.error-message {
+    display: inline-block;
+    color: #F14A77;
+    padding-top: 0.5em;
+}
+
+.form--input-error {
+    border-color: #F14A77;
 }
