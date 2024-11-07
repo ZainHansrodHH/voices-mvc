@@ -6,11 +6,30 @@ ini_set('display_errors', 1);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
-    //Get all the form data
-    $projectTitle = $_POST["project_title"];
+    //Get all the form data & validate it
+
+    $isValid = true;
+
+    if(isset($_POST["project_title"]) AND $_POST["project_title"] != "") {
+        $projectTitle = $_POST["project_title"];
+    } else {
+        $isValid = false;
+    }
+
+
+    if(isset($_POST["project_location_country"]) AND $_POST["project_location_country"] != "") {
+        $projectLocationCountry = $_POST["project_location_country"];
+    } else {
+        $isValid = false;
+    }
+
+    if(isset($_POST["project_location_state"]) AND $_POST["project_location_state"] != "") {
+        $projectLocationState = $_POST["project_location_state"];
+    } else {
+        $isValid = false;
+    }
+
     $projectDescription = $_POST["project_description"];
-    $projectLocationCountry = $_POST["project_location_country"];
-    $projectLocationState = $_POST["project_location_state"];
     $projectBudget = $_POST["project_budget"];
     $hasProjectFile = false;
     
@@ -45,11 +64,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $headers = "From: admin@zainhansrod.com";
 
-    //Send
+    //Send our email out
 
     if (mail($sendTo, $subject, $message, $headers)) {
-        echo "Thank you! Success";
+        $url = "https://www.zainhansrod.com/voices?success=true";
     } else {
-        echo "Unsuccessful";
+        $url = "https://www.zainhansrod.com/voices?success=false";
     }
+    header('Location: '.$url);
+} else {
+
+    //Send the user back to the homepage if the form is not submitted
+    $url = "https://www.zainhansrod.com/voices";
+    header('Location: '.$url);
+    die();
 }
