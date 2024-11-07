@@ -32,6 +32,10 @@ body {
     flex: 2;
 }
 
+.error-main {
+    color: #B00C38;
+}
+
 .form--group {
     padding-bottom: 1em;
 }
@@ -40,6 +44,7 @@ body {
     display: block;
     font-weight: bold;
     margin-top: 1em;
+    margin-bottom: 0;
 }
 
 .form--description {
@@ -96,6 +101,10 @@ body {
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 50%;
+}
+
+#form--file {
+    display: none;
 }
 
 .form--file-btn {
@@ -166,10 +175,49 @@ body {
 
 .error-message {
     display: inline-block;
-    color: #F14A77;
+    color: #B00C38;
     padding-top: 0.5em;
 }
 
 .form--input-error {
-    border-color: #F14A77;
+    border-color: #B00C38;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1115px) {
+    .left-container, .right-container {
+        padding: 3em;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .form--country-state-container {
+        gap: 0;
+        flex-wrap: wrap;
+    }
+
+    .form--country-state-container .form--group {
+        flex: 100%;
+    }
+}
+
+
+@media screen and (max-width: 970px) {
+    .form--radio-container {
+        gap: 0;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .main-container {
+        flex-wrap: wrap;
+    }
+
+    .left-container, .right-container {
+        flex: 100%;
+        padding: 1.5em;
+    }
 }
