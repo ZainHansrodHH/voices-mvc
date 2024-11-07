@@ -16,14 +16,14 @@
             <h1>Let us know your project requirements</h1>
         </div>
         <div class="right-container">
-            <form class="form">
+            <form class="form" method="POST" action="send-email.php">
                 <p class="error-main">Fields marked with * are required fields</p>
                 <div class="form--group">
                     <label for="form--input-title" class="form--title">What's your projects name? *</label>
                     <p class="form--description">Provide a short, descriptive title to attract talent.</p>
                     <input class="form--input" type="text"
                         placeholder="For example: '30 Second Radio Spot' or 'Corporate Training Video'"
-                        id="form--input-title" required />
+                        id="form--input-title" name="project_title" required />
                         <span class="error-message error-message--input-title"></span>
                 </div>
 
@@ -31,7 +31,7 @@
                     <label for="form--script" class="form--title">Small Script</label>
                     <p class="form--description">Include a small piece of a script that you would like a talent to read.
                     </p>
-                    <textarea class="form--input" id="form--script"
+                    <textarea class="form--input" id="form--script" name="project_description"
                         placeholder="Type or paste a sample script here."></textarea>
                     <p class="form--word-count"><span class="form--word-count-number">0</span> <span class="form--word-count-word">Words</span></p>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="form--country-state-container">
                     <div class="form--group">
                         <label for="form--country" class="form--title">Country *</label>
-                        <select class="form--input" id="form--country" required>
+                        <select class="form--input" id="form--country" name="project_location_country" required>
                             <option value="" disabled selected>Select your country</option>
                             <option>USA</option>
                             <option>Canada</option>
@@ -49,7 +49,7 @@
 
                     <div class="form--group">
                         <label for="form--state" class="form--title">State/Province *</label>
-                        <select class="form--input" id="form--state" disabled required>
+                        <select class="form--input" id="form--state" name="project_location_state" disabled required>
                             <option value="" disabled selected>Select your state or province</option>
                         </select>
                         <span class="error-message error-message--state"></span>
@@ -60,7 +60,7 @@
                 <div class="form--group">
                     <p class="form--title">Please upload your reference file here.</p>
                     <p class="form--description">Max: 20MB. Accepted file formats: .pdf, .doc, .docx, .txt</p>
-                    <input type="file" class="form--input" id="form--file" name="form--file"
+                    <input type="file" class="form--input" id="form--file" name="project_file"
                         accept=".pdf,.doc,.docx,.txt" />
                     <label for="form--file" class="form--file-btn"><img src="img/upload-icon.svg"
                             class="form--file-btn-img" alt=""/> Browse for files</label>
@@ -74,17 +74,17 @@
                     <div class="form--radio-container">
 
                         <label for="5-99" class="form--radio-group form--input">
-                            <input type="radio" id="5-99" name="budget" value="5-99" checked="checked"/>
+                            <input type="radio" id="5-99" name="project_budget" value="5-99" checked="checked"/>
                             <span>$5 - $99</span>
                         </label>
 
                         <label for="100-249" class="form--radio-group form--input">
-                            <input type="radio" id="100-249" name="budget" value="100-249" />
+                            <input type="radio" id="100-249" name="project_budget" value="100-249" />
                             <span>$100 - $249</span>
                         </label>
 
                         <label for="250-499" class="form--radio-group form--input">
-                            <input type="radio" id="250-499" name="budget" value="250-499" />
+                            <input type="radio" id="250-499" name="project_budget" value="250-499" />
                             <span>$250 - $499</span>
                         </label>
                     </div>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-btn-container">
                     <input type="reset" value="Reset" class="btn-reset">
-                    <input type="submit" value="Submit" class="btn-submit">
+                    <input type="submit" value="Submit" class="btn-submit" name="submit">
                 </div>
             </form>
 
