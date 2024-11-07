@@ -24,7 +24,7 @@ function wordCounter() {
         let text = scriptBox.value.trim();
 
         let words = text ? text.split(/\s+/).filter(word => word.length > 0) : [];
-        
+
         wordCount.textContent = words.length;
         
         //Set it to either word or words depending on how many are in at one time
@@ -86,15 +86,20 @@ function errorHandling() {
         let countryErrorMessage = document.querySelector('.error-message--country');
         let stateErrorMessage = document.querySelector('.error-message--state');
 
+        country.classList.remove('form--input-error');
+        state.classList.remove('form--input-error');
+
         countryErrorMessage.textContent = '';
         stateErrorMessage.textContent = '';
 
         if (country.selectedIndex == 0) {
             countryErrorMessage.textContent = 'Please select an option';
+            country.classList.add('form--input-error');
         }
 
         if (state.selectedIndex == 0) {
             stateErrorMessage.textContent = 'Please select an option';
+            state.classList.add('form--input-error');
         }
 
     });
@@ -110,8 +115,6 @@ function stateOptionControl() {
     //Watch for changes on the country input in order to enable the state selector and populate the correct values
     country.addEventListener('change', () => {
         let selectedCountry = country.value;
-
-        console.log(selectedCountry);
 
         //Remove any existing options that are present 
         state.innerHTML = '<option value="" disabled selected>Select your state or province</option>';
