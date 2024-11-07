@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     showFileName();
     errorHandling();
     stateOptionControl();
-
+    formResponse();
 });
 
 //Script word counter logic
@@ -99,13 +99,13 @@ function errorHandling() {
         countryErrorMessage.textContent = '';
         stateErrorMessage.textContent = '';
 
-        if (country.selectedIndex == 0) {
+        if (country.selectedIndex === 0) {
             countryErrorMessage.textContent = 'Please select an option';
             country.classList.add('form--input-error');
             isFormValid = false;
         }
 
-        if (state.selectedIndex == 0) {
+        if (state.selectedIndex === 0) {
             stateErrorMessage.textContent = 'Please select an option';
             state.classList.add('form--input-error');
             isFormValid = false;
@@ -143,6 +143,17 @@ function stateOptionControl() {
 
     });
 
+}
+
+function formResponse() {
+    let queryUrl = window.location.search;
+    let urlResponse = queryUrl.split('=');
+    
+    if(urlResponse[1] == 'true') {
+        alert('Thank you so much for submitting, we will be in touch soon!');
+    } else {
+        alert('There was an issue submitting your form, please try again');
+    }
 }
 
 //Object containing the states and provinces in Canada & the USA
