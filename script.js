@@ -39,7 +39,6 @@ function showFileName() {
     let fileName = document.querySelector(".form--file-name");
 
     fileElement.addEventListener('change', () => {
-        console.log('change');
         fileName.textContent = fileElement.files[0].name;
     });
 }
@@ -71,6 +70,9 @@ function errorHandling() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        //Check to see if an error was detected
+        let isFormValid = true;
+
         //Project Name
         let projectName = document.querySelector('#form--input-title');
         let projectNameError = document.querySelector('.error-message--input-title');
@@ -81,6 +83,7 @@ function errorHandling() {
         if (!projectName.value) {
             projectNameError.textContent = 'Please enter a name for the project';
             projectName.classList.add('form--input-error');
+            isFormValid = false;
         }
 
         //Country & State
@@ -99,11 +102,19 @@ function errorHandling() {
         if (country.selectedIndex == 0) {
             countryErrorMessage.textContent = 'Please select an option';
             country.classList.add('form--input-error');
+            isFormValid = false;
         }
 
         if (state.selectedIndex == 0) {
             stateErrorMessage.textContent = 'Please select an option';
             state.classList.add('form--input-error');
+            isFormValid = false;
+        }
+
+        //If form is valid, we can submit it
+
+        if(isFormValid) {
+            form.submit();
         }
 
     });
