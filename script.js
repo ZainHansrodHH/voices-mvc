@@ -56,6 +56,10 @@ function resetForm() {
         //Clear the file name when the form resets
         document.querySelector('.form--file-name').textContent = '';
 
+        //Remove any errors that are currently showing
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('.form--input-error').forEach(el => el.classList.remove('form--input-error'));
+
     });
 }
 
