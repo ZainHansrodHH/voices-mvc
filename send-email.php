@@ -44,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Beging building out details of the email
 
-    $sendTo = "zainhansrod786@gmail.com";
+    //$sendTo = "zainhansrod786@gmail.com";
+    $sendTo = "jobform@voices.com";
     $subject = "New project form submission received";
 
     $message = "Project Title: " . $projectTitle . "\n";
