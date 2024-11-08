@@ -10,7 +10,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     formResponse();
 });
 
-//Script word counter logic
+/* 
+    Function Name - wordCounter
+
+    Purpose - Used for the logic which handles the word counter at the bottom of the script box
+*/
 function wordCounter() {
 
     //Script text area element
@@ -27,13 +31,17 @@ function wordCounter() {
         let words = text ? text.split(/\s+/).filter(word => word.length > 0) : [];
 
         wordCount.textContent = words.length;
-        
+
         //Set it to either word or words depending on how many are in at one time
         words.length === 1 ? wordCountEl.textContent = 'Word' : wordCountEl.textContent = 'Words';
     });
 }
 
-//Function for showing the file name when a file is uploaded 
+/* 
+    Function Name - showFileName
+
+    Purpose - Used for showing the name of the file which was uploaded by the user
+*/
 
 function showFileName() {
     let fileElement = document.querySelector("#form--file");
@@ -44,7 +52,11 @@ function showFileName() {
     });
 }
 
-//Function for handling the reset button logic for the word counter and file name
+/* 
+    Function Name - resetForm
+
+    Purpose - Used for handling the reset button logic for elements that do not get reset such as the error messages, word counter etc.
+*/
 
 function resetForm() {
     let resetBtn = document.querySelector('.btn-reset');
@@ -63,7 +75,11 @@ function resetForm() {
     });
 }
 
-//Form error handling
+/* 
+    Function Name - errorHandling
+
+    Purpose - Function that handles what happens when the form is submitted as well as error handling and checking
+*/
 
 function errorHandling() {
     let form = document.querySelector('.form');
@@ -116,21 +132,25 @@ function errorHandling() {
 
         let honeypot = document.querySelector('#namehoneypot');
 
-        if(honeypot.value) {
+        if (honeypot.value) {
             alert('Not human :)');
             isFormValid = false;
         }
 
         //If form is valid, we can submit it
 
-        if(isFormValid) {
+        if (isFormValid) {
             form.submit();
         }
 
     });
 }
 
-//Function controlling the State dropdown depending on which country is selected
+/* 
+    Function Name - stateOptionControl
+
+    Purpose - Function controlling the State dropdown depending on which country is selected and dynamically populating the values based on that
+*/
 
 function stateOptionControl() {
 
@@ -155,14 +175,23 @@ function stateOptionControl() {
 
 }
 
+
+/* 
+    Function Name - formResponse
+
+    Purpose - Handles the params which are passed if the mail was successful or not and displays a message for the user based on that 
+*/
+
 function formResponse() {
+
+    //If the URL param is true show a positive message and remove the param. If false, show negative message and remove the param
     let queryUrl = window.location.search;
     let urlResponse = queryUrl.split('=');
-    
-    if(urlResponse[1] == 'true') {
+
+    if (urlResponse[1] == 'true') {
         alert('Thank you so much for submitting, we will be in touch soon!');
         window.history.replaceState(null, '', window.location.pathname);
-    } else if(urlResponse[1] == 'false') {
+    } else if (urlResponse[1] == 'false') {
         alert('There was an issue submitting your form, please try again');
         window.history.replaceState(null, '', window.location.pathname);
     }
