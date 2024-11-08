@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 //Script word counter logic
 function wordCounter() {
+
     //Script text area element
     var scriptBox = document.getElementById('form--script');
 
@@ -111,6 +112,15 @@ function errorHandling() {
             isFormValid = false;
         }
 
+        //Check if the honeypot was hit
+
+        let honeypot = document.querySelector('#namehoneypot');
+
+        if(honeypot.value) {
+            alert('Not human :)');
+            isFormValid = false;
+        }
+
         //If form is valid, we can submit it
 
         if(isFormValid) {
@@ -151,8 +161,10 @@ function formResponse() {
     
     if(urlResponse[1] == 'true') {
         alert('Thank you so much for submitting, we will be in touch soon!');
-    } else {
+        window.history.replaceState(null, '', window.location.pathname);
+    } else if(urlResponse[1] == 'false') {
         alert('There was an issue submitting your form, please try again');
+        window.history.replaceState(null, '', window.location.pathname);
     }
 }
 
