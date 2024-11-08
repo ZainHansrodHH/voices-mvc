@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     errorHandling();
     stateOptionControl();
     formResponse();
+    fileBtnTab();
 });
 
 /* 
@@ -195,6 +196,19 @@ function formResponse() {
         alert('There was an issue submitting your form, please try again');
         window.history.replaceState(null, '', window.location.pathname);
     }
+}
+
+
+/* 
+    Function Name - fileBtnTab
+
+    Purpose - Ensures that the file upload label btn is tabbable and does not default to skipping 
+*/
+
+function fileBtnTab() {
+    document.querySelector('.form--file-btn').addEventListener('focus', (e) => {
+        e.preventDefault();
+    });
 }
 
 //Object containing the states and provinces in Canada & the USA
